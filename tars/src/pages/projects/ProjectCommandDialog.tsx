@@ -10,9 +10,9 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { useProjects } from "@/hooks/use-project";
+import { useProjects } from "@/hooks/projects/useProjectHooks";
 import { Doc } from "../../../convex/_generated/dataModel";
-import { cn } from "@/lib/utils";
+
 
 interface ProjectCommandDialogProps{
     open : boolean,
