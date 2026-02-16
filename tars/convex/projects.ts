@@ -80,6 +80,7 @@ export const rename = mutation({
     if(project.userID!=identity.subject){
       throw new Error("Unauthorized Access")
     }
+    
     await ctx.db.patch("Projects",args.projectID,{
       title : args.title,
       updatedAt : Date.now()

@@ -13,17 +13,13 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Poppins } from "next/font/google";
 import { UserButton } from "@clerk/nextjs";
 import { useProject, useRenameProject } from "@/hooks/projects/useProjectHooks";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { CloudCheckIcon, LoaderIcon } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 
-const font = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
+
 const NavBar = ({ projectID }: { projectID: Id<"Projects"> }) => {
   const project = useProject(projectID);
   const renameProject = useRenameProject();
@@ -52,28 +48,25 @@ const NavBar = ({ projectID }: { projectID: Id<"Projects"> }) => {
   };
 
   return (
-    <nav className="flex justify-between items-center gap-x-2 p-2 bg-sidebar">
+    <nav className="flex justify-between items-center gap-x-2 p-2 px-4  h-12">
       <div className="flex items-center gap-x-2">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink className="flex items-center gap-1.5" asChild>
-                <Button variant="ghost" className="w-fit! p-1.5! h-7!" asChild>
+                <Button variant="ghost" className="w-fit! p-1.5! h-7! " asChild>
                   <Link href={"/"}>
                     <Image
                       src={"/logo.svg"}
                       alt="Logo"
-                      width={20}
-                      height={20}
+                      width={30}
+                      height={30}
                     />
-                    <span className={cn("text-lg font-medium", font.className)}>
-                      tars
-                    </span>
                   </Link>
                 </Button>
               </BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator className="ml-0! mr-1!" />
+            <BreadcrumbSeparator className="ml-0! mr-1! " />
             <BreadcrumbItem>
               {isRenaming ? (
                 <input
@@ -88,12 +81,12 @@ const NavBar = ({ projectID }: { projectID: Id<"Projects"> }) => {
                   }}
                   onBlur={() => {}}
                   onKeyDown={handleKeyDown}
-                  className="text-sm bg-transparent text-foreground outline-none focus:ring-1 focus:ring-inset focus: ring-ring font-medium max-w-40 truncate"
+                  className ="text-lg bg-transparent text-foreground outline-none focus:ring-1 focus:ring-inset focus: ring-ring font-medium max-w-400 truncate rounded-2xl px-2 "
                 />
               ) : (
                 <BreadcrumbPage
                   onClick={handleStartRename}
-                  className="text-sm cursor-pointer hover:text-primary font-medium max-w-400 truncate"
+                  className="text-lg cursor-pointer hover:text-primary font-medium max-w-400 truncate"
                 >
                   {project?.title ?? "Loading..."}
                 </BreadcrumbPage>

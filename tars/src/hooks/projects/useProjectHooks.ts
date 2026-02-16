@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { Id } from "../../../convex/_generated/dataModel";
 
-export const useProjects = ( ) => {
+export const useProjects = () => {
     return useQuery(api.projects.get)
 }
 export const useProjectsPartials = (limit : number) => {

@@ -19,13 +19,14 @@ const ProjectIdLayout = ({
   return (
     <div className="w-full h-screen flex flex-col">
       <NavBar projectID={projectID} />
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex overflow-hidden gap-0.5">
         <Allotment
-          className="flex-1"
+          className="flex-1 p-2"
           defaultSizes={[DEFAULT_MAIN_SIZE, DEFAULT_CONVERSATION_SIDEBAR_WIDTH]}
         >
-          <Allotment.Pane>{children}</Allotment.Pane>
+          <Allotment.Pane className="rounded-3xl">{children}</Allotment.Pane>
           <Allotment.Pane
+          className="rounded-3xl bg-sidebar p-2"
             snap
             minSize={MIN_SIDEBAR_WIDIH}
             maxSize={MAX_SIDEBAR_WIDTH}
